@@ -10,8 +10,9 @@ ldlibs =
 
 ###########################################################
 # Tcl stuff
-TCL_CFLAGS=$(shell pkg-config --cflags tcl)
-TCL_LIBS=$(shell pkg-config --libs tcl)
+PKG_CONFIG = pkg-config
+TCL_CFLAGS=$(shell $(PKG_CONFIG) --cflags tcl)
+TCL_LIBS=$(shell $(PKG_CONFIG) --libs tcl)
 
 ## Dawrin
 # TCL_CFLAGS = -I/Library/Frameworks/Tcl.framework/Headers
