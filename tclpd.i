@@ -81,13 +81,13 @@ void name_setitem(type *ary, int index, type value)
 %typemap(in) t_tcl * {
     const char *str = Tcl_GetStringFromObj($input, NULL);
     $1 = object_table_get(str);
-    SWIG_contract_assert($1, "not a t_tcl * instance") {};
+    SWIG_contract_assert($1, "not a t_tcl * instance");
 }
 
 %typemap(in) t_pd * {
     const char *str = Tcl_GetStringFromObj($input, NULL);
     $1 = object_table_get(str);
-    SWIG_contract_assert($1, "not a t_pd * instance") {};
+    SWIG_contract_assert($1, "not a t_pd * instance");
     // XXX: %typemap(out) missing!!!
 }
 
@@ -96,7 +96,7 @@ void name_setitem(type *ary, int index, type value)
     if(!SWIG_IsOK(res)) {
         const char *str = Tcl_GetStringFromObj($input, NULL);
         t_tcl *x = object_table_get(str);
-        SWIG_contract_assert(x, "not a t_text * instance") {};
+        SWIG_contract_assert(x, "not a t_text * instance");
         $1 = &x->o;
     }
 }
@@ -104,14 +104,14 @@ void name_setitem(type *ary, int index, type value)
 %typemap(in) t_object * {
     const char *str = Tcl_GetStringFromObj($input, NULL);
     t_tcl *x = object_table_get(str);
-    SWIG_contract_assert(x, "not a t_object * instance") {};
+    SWIG_contract_assert(x, "not a t_object * instance");
     $1 = &x->o;
 }
 
 %typemap(in) struct _class * {
     const char *str = Tcl_GetStringFromObj($input, NULL);
     t_class *c = class_table_get(str);
-    SWIG_contract_assert(c, "invalid class name") {};
+    SWIG_contract_assert(c, "invalid class name");
     $1 = c;
 }
 
