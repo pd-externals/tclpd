@@ -149,7 +149,7 @@ namespace eval ::pd {
         tclpd_guiclass_new $classname $flag
     }
 
-    # wrapper to post() withouth vargs
+    # wrapper to post() without vargs
     proc post {args} {
         poststring2 [concat {*}$args]
     }
