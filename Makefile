@@ -57,4 +57,6 @@ include $(PDLIBBUILDER_DIR)/Makefile.pdlibbuilder
 # create the tcl wrapper with 'swig'
 tcl_wrap.c: tclpd.i tclpd.h Makefile
 	swig -v -tcl -o tcl_wrap.c -I$(PDINCLUDEDIR) tclpd.i
-# TODO: delete the tcl_wrap.c
+clean-local:
+	rm -f tcl_wrap.c
+clean: clean-local
