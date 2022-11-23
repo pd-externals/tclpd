@@ -4,6 +4,9 @@
 #undef EXTERN
 #include "tclpd.h"
 #define __attribute__(x)
+#ifdef __GNUC__
+# pragma GCC diagnostic ignored "-Wunused-parameter"
+#endif
 %}
 
 %include exception.i
