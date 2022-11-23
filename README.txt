@@ -2,7 +2,7 @@
  Tcl for Pd
  ==========
 
-This library allows to to write externals for Pd using the Tcl language.
+This library allows one to write externals for Pd using the Tcl language.
 It wraps quite closely the pd API (m_pd.h, plus some private functions)
 
 Also a library of Tcl helper functions is provided. It is not mandatory to use
@@ -24,9 +24,9 @@ To compile tclpd, simply type:
 
 To compile it with debug enabled:
 
-  make DEBUG=1 clean all
+  make clean alldebug
 
-Requirements are pd >= 0.39, swig, c++ compiler.
+Requirements are pd >= 0.39, swig, c compiler.
 To install tclpd, simply copy it to /usr/lib/pd/extra (or where you installed
 pure-data).
 
