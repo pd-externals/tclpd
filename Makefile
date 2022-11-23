@@ -43,6 +43,7 @@ tclpd.class.sources += tcl_wrap.c
 datafiles = \
 	LICENSE.txt \
 	README.txt \
+	tclpd.tcl \
 	tclpd-help.pd \
 	tclpd-meta.pd
 
