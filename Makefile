@@ -5,11 +5,27 @@
 # library name
 lib.name = tclpd
 
+cflags = -std=c99
+ldlibs =
+
+###########################################################
+# Tcl stuff
 TCL_CFLAGS=$(shell pkg-config --cflags tcl)
 TCL_LIBS=$(shell pkg-config --libs tcl)
 
-cflags = -DHASHTABLE_COPY_KEYS $(TCL_CFLAGS)
-ldlibs = $(TCL_LIBS)
+## Dawrin
+# TCL_CFLAGS = -I/Library/Frameworks/Tcl.framework/Headers
+# TCL_LIBS = -framework Tcl
+
+## MSW
+# TCL_CFLAGS =
+# TCL_LIBS = -ltcl86 tclpd.def
+
+cflags += -DHASHTABLE_COPY_KEYS $(TCL_CFLAGS)
+ldlibs += $(TCL_LIBS)
+
+#
+###########################################################
 
 # input source file (class name == source file basename)
 tclpd.class.sources = tclpd.c
