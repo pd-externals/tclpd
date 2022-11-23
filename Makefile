@@ -38,16 +38,16 @@ EXTRA_SOURCES = hashtable.c tcl_class.c tcl_loader.c tcl_proxyinlet.c tcl_typema
 #
 #------------------------------------------------------------------------------#
 
-ALL_CFLAGS = -I"$(PD_INCLUDE)" -std=c99 -I/usr/include/tcl8.5 \
+ALL_CFLAGS = -I"$(PD_INCLUDE)" -std=c99 -I/usr/include/tcl8.6 \
 	-I/Library/Frameworks/Tcl.framework/Headers \
 	-Wall -W -Wno-unused-parameter \
 	-DHASHTABLE_COPY_KEYS
 ALL_LDFLAGS = -fPIC
 SHARED_LDFLAGS =
 ALL_LIBS = 
-LIBS_linux = -ltcl8.5
+LIBS_linux = -ltcl8.6
 LIBS_macosx = -framework Tcl
-LIBS_windows = -ltcl85 "$(LIBRARY_NAME).def"
+LIBS_windows = -ltcl86 "$(LIBRARY_NAME).def"
 
 
 #------------------------------------------------------------------------------#
