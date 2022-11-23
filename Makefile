@@ -24,7 +24,12 @@ tclpd.class.sources += \
 tclpd.class.sources += tcl_wrap.c
 
 # all extra files to be included in binary distribution of the library
-datafiles = helloworld-help.pd helloworld-meta.pd README.md
+datafiles = \
+	LICENSE.txt \
+	README.txt \
+	tclpd-help.pd \
+	tclpd-meta.pd
+
 datadirs = examples
 
 # include Makefile.pdlibbuilder from submodule directory 'pd-lib-builder'
@@ -32,7 +37,7 @@ PDLIBBUILDER_DIR=pd-lib-builder/
 include $(PDLIBBUILDER_DIR)/Makefile.pdlibbuilder
 
 
-
+# create the tcl wrapper with 'swig'
 tcl_wrap.c: tclpd.i tclpd.h Makefile
 	swig -v -tcl -o tcl_wrap.c -I$(PDINCLUDEDIR) tclpd.i
-
+# TODO: delete the tcl_wrap.c
