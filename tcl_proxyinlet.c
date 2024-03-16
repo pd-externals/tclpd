@@ -23,7 +23,7 @@ void proxyinlet_anything(t_proxyinlet *x, t_symbol *s, int argc, t_atom *argv) {
 
     if(!(x->argv = (t_atom *)getbytes((argc+PROXYINLET_SEL_TO_LIST) * sizeof(*x->argv)))) {
         x->argc = 0;
-        error("proxyinlet: getbytes: out of memory");
+        pd_error(x, "proxyinlet: getbytes: out of memory");
         return;
     }
 
@@ -56,7 +56,7 @@ void proxyinlet_clone(t_proxyinlet *x, t_proxyinlet *y) {
     y->argc = x->argc;
     if(!(y->argv = (t_atom *)getbytes(y->argc * sizeof(*y->argv)))) {
         y->argc = 0;
-        error("proxyinlet: getbytes: out of memory");
+        pd_error(x, "proxyinlet: getbytes: out of memory");
         return;
     }
 

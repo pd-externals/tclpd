@@ -105,13 +105,13 @@ t_tcl * tclpd_new(t_symbol *classsym, int ac, t_atom *at) {
         qlass = class_table_get(name);
     }
     if(!qlass) {
-        error("tclpd: class not found: %s", name);
+        pd_error(0, "tclpd: class not found: %s", name);
         return NULL;
     }
 
     t_tcl *x = (t_tcl *)pd_new(qlass);
     if(!x) {
-        error("tclpd: failed to create object of class %s", name);
+        pd_error(x, "tclpd: failed to create object of class %s", name);
         return NULL;
     }
 

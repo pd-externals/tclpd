@@ -29,14 +29,14 @@ void tclpd_setup(void) {
     int result = Tcl_EvalFile(tclpd_interp, buf);
     switch(result) {
     case TCL_ERROR:
-        error("tclpd: error loading %s", buf);
+        pd_error(0, "tclpd: error loading %s", buf);
         break;
     case TCL_RETURN:
-        error("tclpd: warning: %s exited with code return", buf);
+        pd_error(0, "tclpd: warning: %s exited with code return", buf);
         break;
     case TCL_BREAK:
     case TCL_CONTINUE:
-        error("tclpd: warning: %s exited with code break/continue", buf);
+        pd_error(0, "tclpd: warning: %s exited with code break/continue", buf);
         break;
     }
     verbose(-1, "tclpd: loaded %s", buf);
@@ -45,7 +45,7 @@ void tclpd_setup(void) {
 }
 
 void tclpd_interp_error(t_tcl *x, int result) {
-    error("tclpd error: %s", Tcl_GetStringResult(tclpd_interp));
+    pd_error(x, "tclpd error: %s", Tcl_GetStringResult(tclpd_interp));
 
     logpost(x, 3, "------------------- Tcl error: -------------------");
 

@@ -77,7 +77,7 @@ found:
         source_table_add(classname, filename);
         verbose(0, "tclpd loader: loaded %s", filename);
     } else {
-        error("tclpd loader: error trying to load %s", filename);
+        pd_error(0, "tclpd loader: error trying to load %s", filename);
         tclpd_interp_error(NULL, result);
         return 0;
     }
@@ -92,7 +92,7 @@ found:
     result = Tcl_Eval(tclpd_interp, cmd);
     if(result == TCL_OK) {
     } else {
-        error("tclpd loader: error in %s %s::setup", filename, classname);
+        pd_error(0, "tclpd loader: error in %s %s::setup", filename, classname);
         tclpd_interp_error(NULL, result);
         return 0;
     }
