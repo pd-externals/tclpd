@@ -89,13 +89,13 @@ void name_setitem(type *ary, int index, type value)
 
 %typemap(in) t_pd * {
     const char *str = Tcl_GetStringFromObj($input, NULL);
-    $1 = object_table_get(str);
+    $1 = (t_pd*)object_table_get(str);
     SWIG_contract_assert($1, "not a t_pd * instance");
     // XXX: %typemap(out) missing!!!
 }
 
 %typemap(in) t_text * {
-    int res = SWIG_ConvertPtr($input, &$1, $1_descriptor, 0 |  0 );
+    int res = SWIG_ConvertPtr($input, (void**)&$1, $1_descriptor, 0 |  0 );
     if(!SWIG_IsOK(res)) {
         const char *str = Tcl_GetStringFromObj($input, NULL);
         t_tcl *x = object_table_get(str);
