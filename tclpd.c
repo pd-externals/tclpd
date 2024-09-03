@@ -12,7 +12,7 @@ void tclpd_setup(void) {
     }
 
     /* verbose(-1) post to the pd window at level 3 */
-    verbose(-1, "tclpd loader v" TCLPD_VERSION);
+    logpost(0, PD_DEBUG, "tclpd loader v" TCLPD_VERSION);
 
     proxyinlet_setup();
 
@@ -25,7 +25,7 @@ void tclpd_setup(void) {
     t_class *foo_class = class_new(gensym("tclpd_init"), 0, 0, 0, 0, 0);
     char buf[PATH_MAX];
     snprintf(buf, PATH_MAX, "%s/tclpd.tcl", foo_class->c_externdir->s_name);
-    verbose(-1, "tclpd: trying to load %s...", buf);
+    logpost(0, PD_DEBUG, "tclpd: trying to load %s...", buf);
     int result = Tcl_EvalFile(tclpd_interp, buf);
     switch(result) {
     case TCL_ERROR:
@@ -39,7 +39,7 @@ void tclpd_setup(void) {
         pd_error(0, "tclpd: warning: %s exited with code break/continue", buf);
         break;
     }
-    verbose(-1, "tclpd: loaded %s", buf);
+    logpost(0, PD_DEBUG, "tclpd: loaded %s", buf);
 
     sys_register_loader(tclpd_do_load_lib);
 }
