@@ -283,8 +283,7 @@ void tclpd_loadbang(t_tcl *x) {
 void tclpd_open(t_tcl *x) {
     if(!x->source_file)
         return;
-
-    sys_vgui("::pd_menucommands::menu_openfile {%s}\n", x->source_file);
+    pdgui_vmess("::pd_menucommands::menu_openfile", "s", x->source_file);
 }
 
 /* Tcl glue: */
