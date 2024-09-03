@@ -426,6 +426,8 @@ void tclpd_properties(t_gobj *z, t_glist *owner) {
 
     t_tcl *x = (t_tcl *)z;
 
+    (void)owner;
+
     av[0] = x->dispatcher;
     Tcl_IncrRefCount(av[0]);
     av[1] = x->self;

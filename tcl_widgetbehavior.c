@@ -41,6 +41,7 @@ int tclpd_guiclass_click(t_gobj *z, t_glist *glist, int xpix, int ypix, int shif
     Tcl_Obj *o = NULL;
     int i = 0;
     t_tcl *x = (t_tcl *)z;
+    (void)glist;
     av[0] = x->dispatcher;
     Tcl_IncrRefCount(av[0]);
     av[1] = x->self;
@@ -224,6 +225,7 @@ cleanup:
 void tclpd_guiclass_select(t_gobj *z, t_glist *glist, int selected) {
     Tcl_Obj *av[5]; InitArray(av, 5, NULL);
     t_tcl *x = (t_tcl *)z;
+    (void)glist;
     av[0] = x->dispatcher;
     Tcl_IncrRefCount(av[0]);
     av[1] = x->self;
@@ -252,6 +254,7 @@ cleanup:
 void tclpd_guiclass_activate(t_gobj *z, t_glist *glist, int state) {
     Tcl_Obj *av[5]; InitArray(av, 5, NULL);
     t_tcl *x = (t_tcl *)z;
+    (void)glist;
     av[0] = x->dispatcher;
     Tcl_IncrRefCount(av[0]);
     av[1] = x->self;
