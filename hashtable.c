@@ -84,7 +84,7 @@ hash_table_t * hashtable_new(size_t size) {
         ht = (hash_table_t *)malloc(sizeof(hash_table_t));
         ht->sz = size;
         ht->t = (list_node_t **)malloc(sizeof(list_node_t *) * size);
-	for(int i = 0; i < size; i++) ht->t[i] = NULL;
+	for(size_t i = 0; i < size; i++) ht->t[i] = NULL;
     }
     return ht;
 }
